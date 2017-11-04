@@ -1,19 +1,30 @@
 # santaHacks
-# What it does
+## What it does
 Helps communities facilitate secret santa gift exchanges with questions that reflect the interests of the club.
 For example a CS community may ask questions about favorite programming language, favorite OS, and if they prefer tabs vs spaces.
 
-# 3 stages
-- Make profile for the org
-    - Needs to have
-        - Name of org
-        - Email for org
-        - Dropdown of number of questions they want to ask
-    - Then they enter the questions
-        - questions include name, address, allergies, and others
+## 3 Steps
+- Create an organization Secret Santa pool
+    - Organization submits:
+        - Org name
+        - Questions to ask their members
+        - Message for members to see when signing up
+        - Deadline for signing up
+- Collect infomation from organization members
+    - Web portal for users to apply for the Secret Santa
+    - Members submit:
+        - Member Name
+        - Mailing address
+        - Contact information
+        - Answers to questions
+- Match up people
+    - Connect people who are compatible thanks to algorithmic magic
+    - Optimize mailing costs
 
-- Send it out to people
-    - Link of some sort to give to people
-
-- Match People
-    - Match people then send who they got out
+## How we did it
+- Website
+    - Hosted in an AWS S3 bucket
+    - Domain from domain.com
+    - Code adopted from [Slack Secret Santa](https://github.com/jolicode/slack-secret-santa/)
+- Database
+    - Hosted in AWS DynamoDB
