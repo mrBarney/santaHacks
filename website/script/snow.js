@@ -1,11 +1,11 @@
 var canvas = document.body.appendChild( document.createElement( 'canvas' ) ),
     context = canvas.getContext( '2d' );
 context.globalCompositeOperation = 'lighter';
-canvas.width = 1280;
-canvas.height = 800;
+canvas.width =  window.innerWidth;
+canvas.height = window.innerHeight;
 canvas.style.position= "absolute";
-canvas.style.zIndex = 14;
-
+canvas.style.zIndex = 10;
+canvas.className = 'Can';
 draw();
 
 var textStrip = ['1', '0'];
@@ -17,8 +17,8 @@ var dY = new Array();
 var stripFontSize = new Array();
 
 for (var i = 0; i < snowFlake; i++) {
-    stripX[i] = Math.floor(Math.random()*1265);
-    stripY[i] = -100;
+    stripX[i] = Math.floor(Math.random()*canvas.width);
+    stripY[i] = Math.floor(Math.random()*-1000);
     dY[i] = Math.floor(Math.random()*10)+3;
     stripFontSize[i] = Math.floor(Math.random()*16)+8;
 }
@@ -50,7 +50,7 @@ function draw() {
 
         if (stripY[j] > 1358) {
             stripX[j] = Math.floor(Math.random()*canvas.width);
-            stripY[j] = -100;
+            stripY[j] = Math.floor(Math.random()*canvas.height);
             dY[j] = Math.floor(Math.random()*7)+3;
             stripFontSize[j] = Math.floor(Math.random()*16)+8;
             drawStrip(stripX[j], stripY[j]);
