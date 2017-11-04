@@ -1,11 +1,14 @@
+
 body, html {
   font-family: 'Montserrat', sans-serif;
+
 }
 html {
     background-color:#E03A4D;
 }
 body {
     background-color:#FFFFFF;
+    
 }
 a:hover {
     text-decoration: underline;
@@ -655,108 +658,5 @@ textarea {
   animation-iteration-count: infinite;
 }
 
-/**
- * Snow animation
- * from https://codepen.io/jpschwinghamer/pen/QwwbgO
- */
-.snow {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    -webkit-animation: snow linear;
-    animation: snow linear;
-}
-.snow.foreground {
-    background-image: url(/images/snow-large.png);
-    -webkit-animation-duration: 15s;
-    animation-duration: 15s;
-}
-.snow.foreground.layered {
-    -webkit-animation-delay: 7.5s;
-    animation-delay: 7.5s;
-}
-.snow.middleground {
-    background-image: url(/images/snow-medium.png);
-    -webkit-animation-duration: 20s;
-    animation-duration: 20s;
-}
-.snow.middleground.layered {
-    -webkit-animation-delay: 10s;
-    animation-delay: 10s;
-}
-@-webkit-keyframes snow {
-    0% {
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-    100% {
-        -webkit-transform: translate3d(15%, 100%, 0);
-        transform: translate3d(15%, 100%, 0);
-    }
-}
 
-@keyframes snow {
-    0% {
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-    100% {
-        -webkit-transform: translate3d(15%, 100%, 0);
-        transform: translate3d(15%, 100%, 0);
-    }
-}
-
-/**
- * Rotate effect
- */
-@-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-    from { transform:rotate(0deg); }
-    to { transform:rotate(360deg); }
-}
-
-.spin {
-    display: inline-block;
-    -webkit-animation: spin 10s infinite linear;
-    animation: spin 10s infinite linear;
-}
-
-/**
- * Hall of Fame
- */
-.hall-of-fame .they-use-it ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0;
-}
-.hall-of-fame .they-use-it li {
-    list-style: none;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2em;
-}
-.hall-of-fame .they-use-it li img {
-    max-height: 100%;
-}
-@media screen and (min-width: 800px) {
-    .hall-of-fame .they-use-it li {
-        width: 21%;
-    }
 }
