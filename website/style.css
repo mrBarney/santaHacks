@@ -5,10 +5,11 @@ body, html {
 }
 html {
     background-color:#E03A4D;
+    
 }
 body {
     background-color:#FFFFFF;
-    
+
 }
 a:hover {
     text-decoration: underline;
