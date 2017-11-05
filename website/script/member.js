@@ -4,7 +4,7 @@ var config = new AWS.Config({
 
 var s3 = new AWS.S3(config);
 const sourceBucket = "setup.santahacks.com";
-const sourceKey = ""; // <- ???
+const sourceKey = ""; // Filename. Need to get from browser
 const sourceType = "application/json";
 
 AWS.config.update({
