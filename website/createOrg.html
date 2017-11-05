@@ -15,6 +15,25 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+
+    .ui-datepicker {
+   background: #FFF;
+   border: 1px solid #000;
+   color: #000;
+   padding: 10px;
+ }
+
+ table.ui-datepicker-calendar{
+    border-spacing: 5px;
+  }
+
+  .ui-datepicker table{
+    border-collapse: inherit;
+  }
+  #datepicker
+  {
+    color: #000;
+  }
         .addB {
             background-color: #006600;
             /* Green */
@@ -141,11 +160,11 @@
                 </div>
                 <div class="form-field">
                     <label>Deadline:</label>
-                    <input type="text" class="questions" id="datePicker" name="deadline">
+                    <input type="text" id="datepicker">
                     <br>
                     <br>
                 </div>
-                <input type="submit" value="Submit" class="submit">
+                <input  type="submit" value="Submit" class="submit">
 
             </form>
 
