@@ -70,9 +70,25 @@
             color: black;
         }
 
+        .form-control {
+            max-width: 50%;
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            color: black;
+        }
+
         label {
             display: inline-block;
             width: 200px;
+        }
+
+        body {
+            background-color: #6f0000;
+        }
+
+        .container {
+            background-color: #560d0d;
         }
     </style>
 </head>
@@ -80,118 +96,120 @@
 <body>
 
     </script>
-    <header class="header">
-        <div class="home-menu pure-menu pure-menu-horizontal">
-            <div class="pure-menu-heading">
-                <a href="index.html">
-                    <div class="logo-wrapper">
-                        <img src="images/logo.png" alt="Secret Santa" />
-                    </div>
-                    <h1>
-                        <br>Santa Hacks</h1>
-                </a>
+    <div class="container">
+        <header class="header, row">
+            <div class="home-menu pure-menu pure-menu-horizontal">
+                <div class="pure-menu-heading">
+                    <a href="index.html">
+                        <div class="logo-wrapper">
+                            <img src="images/logo.png" alt="Secret Santa" />
+                        </div>
+                        <h1>
+                            <br>Santa Hacks</h1>
+                    </a>
+                </div>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item">
+                        <a target="_blank" class="pure-menu-link" href="https://github.com/mrBarney/santaHacks">
+                            <i class="fa fa-github"></i> Fork me on GitHub</a>
+                    </li>
+                </ul>
             </div>
+        </header>
 
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item">
-                    <a target="_blank" class="pure-menu-link" href="https://github.com/mrBarney/santaHacks">
-                        <i class="fa fa-github"></i> Fork me on GitHub</a>
-                </li>
-            </ul>
-        </div>
-    </header>
+        <div class="jumbotron">
 
-    <div class="jumbotron">
-        <div class="snow foreground"></div>
-        <div class="snow foreground layered"></div>
-        <div class="snow middleground"></div>
-        <div class="snow middleground layered"></div>
+            <div class="snow foreground"></div>
+            <div class="snow foreground layered"></div>
+            <div class="snow middleground"></div>
+            <div class="snow middleground layered"></div>
 
-        <div class="jumbotron-inner">
-            <h1>Fill out the form below and
-                <br>send the link to your organization</h1>
-
-
-            <form id="orgForm" action="" method="post">
-
-                <div class="form-field">
-                    <label>Organization name:</label>
-                    <input type="text" name="Organization" class="questions" placeholder="UT Dallas">
-                    <a href="#" class="rem"> &nbsp</a>
-                    <a href="#" class="rem"> &nbsp</a>
-                    <br>
-                    <br>
-                </div>
-                <div class="Que">
-                    <div class="form-field">
-                        <label>Question 1:</label>
-                        <input type="text" name="Question 1" class="questions" placeholder="What's your favorite programming language?">
-                        <a href="#" class="rem"> &nbsp</a>
-                        <a href="#" class="rem"> &nbsp</a>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="form-field">
-                        <label>Question 2:</label>
-                        <input type="text" name="Question 2" class="questions" placeholder="Origal vs Prequels Star Wars?">
-                        <a href="#" class="rem"> &nbsp </a <a href="#" class="rem"> &nbsp</a>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="form-field">
-                        <label>Question 3:</label>
-                        <input type="text" name="Question 3" class="questions" placeholder='Favorite car?'>
-                        <a href="#" class="rem"> &nbsp </a>
-                        <a href="#" class="rem"> &nbsp</a>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-
-                <button type="button" name="button" class="addB">Add new Question</button>
-                <br>
+            <div class="jumbotron-inner">
+                <h1>Fill out the form below!</h1>
                 <br>
 
-                <div class="form-field">
-                    <label>Message for sign-ups:</label>
-                    <input type="text" class="questions" name="Message">
-                    <br>
-                    <br>
-                </div>
-                <div class="form-field">
-                    <label>Deadline:</label>
-                    <input class="questions" type="text" id="datepicker">
-                    <br>
-                    <br>
-                </div>
-                <input type="submit" value="Submit" class="submit">
 
-            </form>
+                <form id="orgForm" action="" method="post">
 
-            <pre id="result">
-                </pre>
+                    <div class="form-field">
+                        <label>Organization name:</label>
+                        <input type="text" name="Organization" class="questions, form-control" placeholder="UT Dallas">
+                        <a href="#" class="rem"> &nbsp</a>
+                        <a href="#" class="rem"> &nbsp</a>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="Que">
+                        <div class="form-field">
+                            <label>Question 1:</label>
+                            <input type="text" name="Question 1" class="questions, form-control" placeholder="What's your favorite programming language?">
+                            <a href="#" class="rem"> X</a>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="form-field">
+                            <label>Question 2:</label>
+                            <input type="text" name="Question 2" class="questions, form-control" placeholder="Origal vs Prequels Star Wars?">
+                            <a href="#" class="rem"> X </a>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="form-field">
+                            <label>Question 3:</label>
+                            <input type="text" name="Question 3" class="questions, form-control" placeholder='Favorite car?'>
+                            <a href="#" class="rem"> X </a>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+
+                    <button type="button" name="button" class="addB">Add new Question</button>
+                    <br>
+                    <br>
+
+                    <div class="form-field">
+                        <label>Message for sign-ups:</label>
+                        <input type="text" class="questions , form-control" name="Message">
+                        <br>
+                        <br>
+                    </div>
+                    <div class="form-field">
+                        <label>Deadline:</label>
+                        <input class="questions , form-control" type="text" id="datepicker">
+                        <br>
+                        <br>
+                    </div>
+                    <input type="submit" value="Submit" class="submit">
+
+                </form>
+
+                <pre id="result">
+                        </pre>
+            </div>
         </div>
+
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+        <script src='https://sdk.amazonaws.com/js/aws-sdk-2.145.0.min.js'></script>
+        <script src="script/question.js"></script>
+        <script src="script/config.js"></script>
+        <script src="script/upload.js"></script>
+
+        <footer class="footer, row">
+            <center>
+                <a href="mailto:jordan@barnfield.me" class="support-link">
+                    <i class="fa fa-support"></i> Need help? Contact us!</a>
+                <p>
+                    Made with
+                    <i class="fa fa-heart"></i> by UT-Disaster @ CodeRed</a>
+                    &mdash; Emoji and logo provided free by
+                    <a href="http://emojione.com">Emoji One</a>
+                </p>
+            </center>
+        </footer>
     </div>
-
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-    <script src='https://sdk.amazonaws.com/js/aws-sdk-2.145.0.min.js'></script>
-    <script src="script/question.js"></script>
-    <script src="script/config.js"></script>
-    <script src="script/upload.js"></script>
-
-    <footer class="footer">
-        <center>
-            <a href="mailto:jordan@barnfield.me" class="support-link">
-                <i class="fa fa-support"></i> Need help? Contact us!</a>
-            <p>
-                Made with
-                <i class="fa fa-heart"></i> by UT-Disaster @ CodeRed</a>
-                &mdash; Emoji and logo provided free by
-                <a href="http://emojione.com">Emoji One</a>
-            </p>
-        </center>
-    </footer>
 </body>
 
 </html>
