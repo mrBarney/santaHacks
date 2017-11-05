@@ -8,16 +8,25 @@ var s3 = new AWS.S3(config);
 const sourceBucket = "setup.santahacks.com";
 const sourceType = "application/json";
 
+AWS.config.update({
+  region: config.s3region,
+  credentials: new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: config.poolID
+  })
+});
+
 var params = {
   Bucket: sourceBucket,
   /* required */
-  Key: sourceKey,
+  Key: 'test.json',
   /* required */
-  ResponseContentType: sourceType,
+  Body: "",
+
+  ContentType: sourceType,
 };
 
-// Parse into json
 $.fn.serializeObject = function () {
+  var o = {};
   var a = this.serializeArray();
   $.each(a, function () {
     if (o[this.name] !== undefined) {
@@ -34,13 +43,9 @@ $.fn.serializeObject = function () {
 
 $(function () {
   $('form').submit(function () {
-    var json = text(JSON.stringify($('form').serializeObject()));
-    s3.putObject({
-      Bucket: 'setup.santahacks.com',
-      Key: 'test.json',
-      Body: json,
-      ContentType: "application/json"
-    }, function (err, data) {
+    var json = JSON.stringify($('form').serializeObject());
+    params.Body = json;
+    s3.putObject(params, function (err, data) {
       console.log(JSON.stringify(err) + " " + JSON.stringify(data));
     });
     return false;
