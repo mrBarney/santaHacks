@@ -7,7 +7,7 @@
     });
 
     var s3 = new AWS.S3(config);
-    const sourceBucket = "setup.santahacks.com";
+    const sourceBucket = "responses.santahacks.com";
     const sourceType = "application/json";
     const urlParams = new URLSearchParams(window.location.search);
     const sourceKey = urlParams.get("org") + ".json";
@@ -22,14 +22,13 @@
     var params = {
         Bucket: sourceBucket, /* required */
         Key: sourceKey, /* required */
-        ResponseContentType: sourceType,
-    };
-
-    s3.getObject(params, function(err, data) {
+        Body: '{ json content }',
+        ContentType: 'application/json',
+      };
+      s3.putObject(params, function(err, data) {
         if (err) console.log(err, err.stack); // an error occurred
-        else
-            console.log(new TextDecoder("utf-8").decode(data.Body));           // successful response
-    });
+        else     console.log(data);           // successful response
+      });
 
     </script>
 </head>
