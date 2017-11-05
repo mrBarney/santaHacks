@@ -2,6 +2,7 @@ var sourceBucket = "responses.santahacks.com";
 var sourceType = "application/json";
 var urlParams = new URLSearchParams(window.location.search);
 var sourceKey = urlParams.get("orgname");
+var s3 = new AWS.S3(config);
 
 var params = {
     Bucket: sourceBucket,
@@ -33,7 +34,7 @@ $(function () {
         params.Key = params.Key.concat("/" + document.getElementsByName('Name')[0].value);
         params.Key = params.Key.concat(".json");
         params.Key = params.Key.replace(/ /g, '_');
-            var s3 = new AWS.S3(config);
+        var s3 = new AWS.S3(config);
             s3.putObject(params, function (err, data) {
                 if(err)
                     console.log(err, err.stack);
@@ -41,7 +42,7 @@ $(function () {
                     console.log("Success!!");
             });
             setTimeout(function(){
-                window.location.href="submitted.html" + document.getElementsByName('Organization')[0].value.replace(/ /g, '_');    
+                window.location.href="submitted.html?orgname=" + sourceKey;    
               }, 1000);
 
         return false;
