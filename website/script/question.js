@@ -10,8 +10,9 @@ $(document).ready(function()
    $(addB).click(function(e)
  {
    if(n<limit){
-     $(questions).append("<div><label>Question "+n+": </label> <input type=\"text\" name=\"questions"+n+"\" class=\"questions\"> <a href=\"#\" class=\"rem\">X</a><br><br></div>");
-    n++;
+     $(questions).append("<div>  <label>Question "+n+":</label> <input type=\"text\" name=\"question"+n+"\" class=\"questions\" ><a href=\"#\" class=\"rem\">X</a><br><br></div>");
+
+         n++;
     }
  });
 
