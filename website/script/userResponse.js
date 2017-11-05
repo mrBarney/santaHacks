@@ -8,7 +8,7 @@ var s3 = new AWS.S3(config);
 const sourceBucket = "responses.santahacks.com";
 const sourceType = "application/json";
 const urlParams = new URLSearchParams(window.location.search);
-const sourceKey = urlParams.get("orgname");
+const sourceKey = urlParams.get("org");
 
 AWS.config.update({
     region: config.s3region,
@@ -49,6 +49,8 @@ $(function () {
         params.Key = params.Key.replace(/ /g, '_');
         setTimeout(function () {
             s3.putObject(params, function (err, data) {
+                if(err)
+                    console.log(err, err.stack);
                 console.log("Success!!");
             });
         }, 1000);
