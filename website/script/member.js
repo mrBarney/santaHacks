@@ -22,6 +22,7 @@ s3.getObject(params, function(err, data) {
       console.log(new TextDecoder("utf-8").decode(data.Body));
 
       $(org).text(""+(b.Organization));
+      $(message0).text(""+(b.Message));
       if(b.Question1) {
         $(question1).text(""+(b.Question1));
       }
