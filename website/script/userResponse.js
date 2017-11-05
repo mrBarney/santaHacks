@@ -1,21 +1,7 @@
-var config = new AWS.Config({
-    accessKeyId: config.key,
-    secretAccessKey: config.secret,
-    region: config.s3region
-});
-
-var s3 = new AWS.S3(config);
-const sourceBucket = "responses.santahacks.com";
-const sourceType = "application/json";
-const urlParams = new URLSearchParams(window.location.search);
-const sourceKey = urlParams.get("org");
-
-AWS.config.update({
-    region: config.s3region,
-    credentials: new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: config.poolID
-    })
-});
+var sourceBucket = "responses.santahacks.com";
+var sourceType = "application/json";
+var urlParams = new URLSearchParams(window.location.search);
+var sourceKey = urlParams.get("orgname");
 
 var params = {
     Bucket: sourceBucket,
@@ -48,10 +34,12 @@ $(function () {
         params.Key = params.Key.concat(".json");
         params.Key = params.Key.replace(/ /g, '_');
         setTimeout(function () {
+            var s3 = new AWS.S3(config);
             s3.putObject(params, function (err, data) {
                 if(err)
                     console.log(err, err.stack);
-                console.log("Success!!");
+                else
+                    console.log("Success!!");
             });
         }, 1000);
 

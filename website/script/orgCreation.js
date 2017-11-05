@@ -1,20 +1,6 @@
-var config = new AWS.Config({
-  accessKeyId: config.key,
-  secretAccessKey: config.secret,
-  region: config.s3region
-});
 
-var s3 = new AWS.S3(config);
 const sourceBucket = "setup.santahacks.com";
 const sourceType = "application/json";
-
-AWS.config.update({
-  region: config.s3region,
-  credentials: new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: config.poolID
-  })
-});
-
 var params = {
   Bucket: sourceBucket,
   Key: 'default.json',

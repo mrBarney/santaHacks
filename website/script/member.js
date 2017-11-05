@@ -1,21 +1,12 @@
-var config = new AWS.Config({
-    accessKeyId: config.key, secretAccessKey: config.secret, region: config.s3region
-});
-const urlParams = new URLSearchParams(window.location.search);
+var urlParams = new URLSearchParams(window.location.search);
 
-var s3 = new AWS.S3(config);
-const sourceBucket = "setup.santahacks.com";
-const sourceKey = urlParams.get("org") + ".json"; // Filename. Need to get from browser
-const sourceType = "application/json";
-AWS.config.update({
-    region: config.s3region,
-    credentials: new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: config.poolID
-    })
-});
+var setupBucket = "setup.santahacks.com";
+var sourceKey = urlParams.get("orgname") + ".json"; // Filename. Need to get from browser
+var sourceType = "application/json";
+
 
 var params = {
-    Bucket: sourceBucket, /* required */
+    Bucket: setupBucket, /* required */
     Key: sourceKey, /* required */
     ResponseContentType: sourceType,
 };
