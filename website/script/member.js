@@ -5,8 +5,6 @@ var config = new AWS.Config({
 var s3 = new AWS.S3(config);
 const sourceBucket = "setup.santahacks.com";
 const sourceType = "application/json";
-const urlParams = new URLSearchParams(window.location.search);
-const sourceKey = urlParams.get("org") + ".json";
 
 AWS.config.update({
     region: config.s3region,
