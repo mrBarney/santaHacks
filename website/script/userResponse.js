@@ -7,6 +7,8 @@ var config = new AWS.Config({
   var s3 = new AWS.S3(config);
   const sourceBucket = "responses.santahacks.com";
   const sourceType = "application/json";
+  const urlParams = new URLSearchParams(window.location.search);
+  const sourceKey = urlParams.get("orgname");
   
   AWS.config.update({
     region: config.s3region,
@@ -17,7 +19,7 @@ var config = new AWS.Config({
   
   var params = {
     Bucket: sourceBucket,
-    Key: '',
+    Key:  sourceKey,
     Body: "",
     ContentType: sourceType,
   };
@@ -42,12 +44,11 @@ var config = new AWS.Config({
     $('form').submit(function () {
       var json = JSON.stringify($('form').serializeObject());
       params.Body = json;
-      params.Key = 
-      params.Key = document.getElementsByName('Name')[0].value;
+      params.Key = params.Key.concat("/" + document.getElementsByName('Name')[0].value);
       params.Key = params.Key.concat(".json");
-      params.Key = params.Key.replace(" ", "");  
+      params.Key = params.Key.replace(/ /g, '_');
       s3.putObject(params, function (err, data) {
-        console.log(JSON.stringify(err) + " " + JSON.stringify(data));
+        console.log("Success!!");
       });
       return false;
     });

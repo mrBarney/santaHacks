@@ -44,10 +44,13 @@ $(function () {
     params.Body = json;
     params.Key = document.getElementsByName('Organization')[0].value;
     params.Key = params.Key.concat(".json");
-    params.Key = params.Key.replace(" ", "");  
+    params.Key = params.Key.replace(/ /g, '_');
     s3.putObject(params, function (err, data) {
       console.log(JSON.stringify(err) + " " + JSON.stringify(data));
     });
+    setTimeout(function(){
+      window.location.href="sampleMember.html?orgname=" + document.getElementsByName('Organization')[0].value;    
+    }, 2000);
     return false;
   });
 });
