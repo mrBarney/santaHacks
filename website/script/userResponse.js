@@ -33,7 +33,6 @@ $(function () {
         params.Key = params.Key.concat("/" + document.getElementsByName('Name')[0].value);
         params.Key = params.Key.concat(".json");
         params.Key = params.Key.replace(/ /g, '_');
-        setTimeout(function () {
             var s3 = new AWS.S3(config);
             s3.putObject(params, function (err, data) {
                 if(err)
@@ -41,7 +40,9 @@ $(function () {
                 else
                     console.log("Success!!");
             });
-        }, 1000);
+            setTimeout(function(){
+                window.location.href="submitted.html" + document.getElementsByName('Organization')[0].value.replace(/ /g, '_');    
+              }, 1000);
 
         return false;
     });
