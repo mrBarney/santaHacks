@@ -15,46 +15,46 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        .addB {
+            background-color: #006600;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px
+        }
 
-       .addB{     background-color:#006600; /* Green */
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px
-       }
+        .submit {
+            background-color: #006600;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px
+        }
 
-       .submit{
-           background-color:#006600; /* Green */
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px
-       }
+        .questions {
+            padding: 10px 10px 10px 10px;
+            color: black;
+        }
 
-       .questions{
-           padding: 10px 10px 10px 10px;
-           color:black;
-       }
-       label{
-           display:inline-block;
-           width:200px;
-       }
-
-
-
-        </style>
+        label {
+            display: inline-block;
+            width: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -91,33 +91,71 @@
             <h1>Fill out the form below and
                 <br>send the link to your organization</h1>
 
-                <div class="forM">
 
-                <form action="/action_page.php">
+            <form id="orgForm" action="" method="post">
 
-                  <div class="Que">
-                    <label>Organization name:</label> <input type="text" name="orgname" class="questions" placeholder="UT Dallas"><br><br>
-                    <div>  <label>Question 1:</label> <input type="text" name="question1" class="questions" placeholder="What's your favorite programming language?"><br><br></div>
-                      <div>  <label>Question 2:</label> <input type="text" name="question2" class="questions" placeholder="Origal vs Prequels Star Wars?"><br><br></div>
-                      <div>  <label>Question 3:</label> <input type="text" name="question3" class="questions" placeholder='Favorite car?'><br><br></div>
+                <div class="form-field">
+                    <label>Organization name:</label>
+                    <input type="text" name="orgname" class="questions" placeholder="UT Dallas">
+                    <br>
+                    <br>
+                </div>
+                <div class="Que">
+                    <div class="form-field">
+                        <label>Question 1:</label>
+                        <input type="text" name="question1" class="questions" placeholder="What's your favorite programming language?">
+                        <br>
+                        <br>
                     </div>
-                    <button type="button" name="button" class="addB">Add new Question</button><br><br>
-                    <label>Message for sign-ups:</label> <input type="text" class="questions" name="message"><br><br>
-                    <label>Deadline:</label> <input type="text" class="questions" id="datePicker" name="deadline"><br><br>
-                    <input type="submit" value="Submit" class="submit">
-
-                  </form>
-
+                    <div class="form-field">
+                        <label>Question 2:</label>
+                        <input type="text" name="question2" class="questions" placeholder="Origal vs Prequels Star Wars?">
+                        <br>
+                        <br>
                     </div>
+                    <div class="form-field">
+                        <label>Question 3:</label>
+                        <input type="text" name="question3" class="questions" placeholder='Favorite car?'>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+                <button type="button" name="button" class="addB">Add new Question</button>
+                <br>
+                <br>
+
+                <div class="form-field">
+                    <label>Message for sign-ups:</label>
+                    <input type="text" class="questions" name="message">
+                    <br>
+                    <br>
+                </div>
+                <div class="form-field">
+                    <label>Deadline:</label>
+                    <input type="text" class="questions" id="datePicker" name="deadline">
+                    <br>
+                    <br>
+                </div>
+                <input type="submit" value="Submit" class="submit">
+
+            </form>
+
+            <pre id="result">
+                </pre>
+
 
         </div>
     </div>
 
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://sdk.amazonaws.com/js/aws-sdk-2.145.0.min.js'></script>
 
-    <script  src="script/question.js"></script>
+    <script src="script/question.js"></script>
+    <script src="script/json.js"></script>
 
     <footer class="footer">
         <center>
