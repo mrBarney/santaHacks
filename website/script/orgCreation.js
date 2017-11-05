@@ -50,7 +50,7 @@ $(function () {
     });
     setTimeout(function(){
       window.location.href="sampleMember.html?orgname=" + document.getElementsByName('Organization')[0].value;    
-    }, 2000);
+    }, 1000);
     return false;
   });
 });
