@@ -11,6 +11,7 @@ s3.listObjects(params, function (err, data) {
   else
     console.log(data); // successful response
 });
+
 var people = ["john", "abbie", "bill"];
 
 people = assignSantas(people);
