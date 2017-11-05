@@ -43,6 +43,11 @@
     border-radius: 8px
        }
 
+       .questions{
+           padding: 10px 10px 10px 10px;
+           color:black;
+       }
+
 
         </style>
 </head>
@@ -85,11 +90,11 @@
 
 
                 <form action="/action_page.php">
-                    Organization name: <input type="text" name="orgname" placeholder="UT Dallas"><br>
-                    <div class="questions">
-                      Question 1: <input type="text" name="question1" placeholder="What's your favorite programming language?"><br>
-                      Question 2: <input type="text" name="question2" placeholder="Origal vs Prequels Star Wars?"><br>
-                      Question 3: <input type="text" name="question3" placeholder='Favorite car?'><br>
+                    Organization name: <input type="text" name="orgname" class="questions" placeholder="UT Dallas"><br><br>
+                    <div>
+                      Question 1: <input type="text" name="question1" class="questions" placeholder="What's your favorite programming language?"><br><br>
+                      Question 2: <input type="text" name="question2" class="questions" placeholder="Origal vs Prequels Star Wars?"><br><br>
+                      Question 3: <input type="text" name="question3" class="questions" placeholder='Favorite car?'><br><br>
                     </div>
                     <button type="button" name="button" class="addB">Add new Question</button><br>
                     Message for sign-ups: <input type="text" name="message"><br>
