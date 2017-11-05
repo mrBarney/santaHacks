@@ -41,7 +41,7 @@ $(function () {
                     console.log("Success!!");
             });
             setTimeout(function(){
-                window.location.href="website/submitted.html" + document.getElementsByName('Organization')[0].value.replace(/ /g, '_');    
+                window.location.href="submitted.html" + document.getElementsByName('Organization')[0].value.replace(/ /g, '_');    
               }, 1000);
 
         return false;
