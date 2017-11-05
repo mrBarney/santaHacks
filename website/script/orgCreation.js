@@ -35,7 +35,7 @@ $(function () {
       console.log(JSON.stringify(err) + " " + JSON.stringify(data));
     });
     setTimeout(function(){
-      window.location.href="sampleMember.html?orgname=" + document.getElementsByName('Organization')[0].value;    
+      window.location.href="signup.html?orgname=" + document.getElementsByName('Organization')[0].value.replace(/ /g, '_');    
     }, 1000);
     return false;
   });
