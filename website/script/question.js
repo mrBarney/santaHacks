@@ -1,14 +1,26 @@
 $(document).ready(function()
 {
+   var limit = 20;
    var n = 4;
    var addB = $(".addB");
    var questions = $(".questions");
+
    $(addB).click(function(e)
  {
-    $(questions).append("Question "+n+": <input type=\"text\" name=\"question"+n+"\"><br>");
+   if(n<limit){
+     $(questions).append("<div>Question "+n+": <input type=\"text\" name=\"question"+n+"\"> <a href=\"#\" class=\"rem\">X</a><br></div>");
     n++;
+    }
  });
 
-// add remove field function
+ $(questions).on("click", ".rem", function(e){
+   if(n>3){
+   e.preventDefault();
+   $(this).parent('div').remove();
+   n--;
+ }
+ });
+
+
 
 });
