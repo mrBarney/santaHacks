@@ -1,16 +1,16 @@
 $(document).ready(function()
 {
    var limit = 20;
-   var n = 4;
+   var n = 5;
    var addB = $(".addB");
-   var questions = $(".questions");
+   var questions = $(".Que");
 
    $( "#datepicker" ).datepicker();
 
    $(addB).click(function(e)
  {
    if(n<limit){
-     $(questions).append("<div>Question "+n+": <input type=\"text\" name=\"question"+n+"\"> <a href=\"#\" class=\"rem\">X</a><br></div>");
+     $(questions).append("<div><label>Question "+n+": </label> <input type=\"text\" name=\"questions"+n+"\" class=\"questions\"> <a href=\"#\" class=\"rem\">X</a><br><br></div>");
     n++;
     }
  });
