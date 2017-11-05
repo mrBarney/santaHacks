@@ -4,7 +4,7 @@ html {
 }
 
 html {
-    background-color: #E03A4D;
+    background-color: #6f0000;
 }
 
 body {
@@ -17,7 +17,7 @@ a:hover {
 
 a {
     text-decoration: none;
-    color: #E03A4D;
+    color: #6f0000;
 }
 
 #result {
@@ -43,7 +43,7 @@ a {
     margin-top: 1em;
     font-size: 1.2em;
     text-decoration: none;
-    background-color: #E03A4D;
+    background-color: #6f0000;
     border: 0 none;
     color: white;
     border-radius: 10px;
@@ -69,13 +69,13 @@ a {
  */
 
 .header {
-    background-color: #E03A4D;
+    background-color: #6f0000;
 }
 
 .home-menu {
     position: relative;
     display: flex;
-    max-width: 960px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -116,7 +116,7 @@ a {
 
 .home-menu .pure-menu-link:hover {
     background-color: white;
-    color: #E03A4D;
+    color: #6f0000;
 }
 
 .home-menu .pure-menu-link {
@@ -173,7 +173,7 @@ footer {
     bottom: 0;
     padding: 2em;
     color: white;
-    background-color: #E03A4D;
+    background-color: #6f0000;
     font-size: 0.9em;
 }
 
@@ -184,7 +184,7 @@ footer a.support-link {
     text-decoration: none;
     background-color: white;
     border: 3px solid white;
-    color: #E03A4D;
+    color: #6f0000;
     border-radius: 10px;
     padding: 1em;
 }
@@ -209,12 +209,12 @@ footer a {
 }
 
 .content-head {
-    color: #E03A4D;
+    color: #6f0000;
     font-size: 2em;
 }
 
 .content-subhead {
-    color: #E03A4D;
+    color: #6f0000;
     font-weight: bold;
     font-size: 1.2em;
 }
@@ -232,7 +232,7 @@ footer a {
     overflow: hidden;
     position: relative;
     color: white;
-    background-color: #E03A4D;
+    background-color: #6f0000;
     padding-bottom: 10em;
     text-align: center;
 }
@@ -243,6 +243,7 @@ footer a {
 
 .jumbotron-inner {
     max-width: 960px;
+    background-color: #6f0000;
     margin: 0 auto;
 }
 
@@ -275,7 +276,7 @@ footer a {
 }
 
 .jumbotron .action:hover {
-    color: #56B68B;
+    color: #6f0000;
 }
 
 .jumbotron .action {
@@ -285,7 +286,7 @@ footer a {
     text-decoration: none;
     background-color: white;
     border: 3px solid white;
-    color: #E03A4D;
+    color: #6f0000;
     border-radius: 10px;
     padding: 18px;
 }
@@ -321,7 +322,7 @@ footer a {
 }
 
 .how-item a {
-    color: #E03A4D;
+    color: #6f0000;
     text-decoration: none;
 }
 
@@ -360,7 +361,7 @@ footer a {
 }
 
 .step-feature-text p a {
-    color: #E03A4D;
+    color: #6f0000;
 }
 
 .step-feature-text p {
@@ -369,7 +370,7 @@ footer a {
 }
 
 .step-feature-text h3 {
-    color: #E03A4D;
+    color: #6f0000;
     font-size: 1.6em;
     box-sizing: border-box;
 }
@@ -400,7 +401,7 @@ footer a {
 
 .sample-message {
     padding: 3em;
-    background-color: #E03A4D;
+    background-color: #6f0000;
     color: white;
 }
 
@@ -454,7 +455,7 @@ footer a {
 
 .why-block a {
     text-decoration: none;
-    color: #E03A4D;
+    color: #6f0000;
 }
 
 .why-block h2,
@@ -504,7 +505,7 @@ footer a {
 
 .run-block h2 {
     margin-top: 2em;
-    color: #E03A4D;
+    color: #6f0000;
 }
 
 .error {
@@ -607,7 +608,7 @@ textarea {
 
 .user-search .helper .check-all,
 .user-search .helper .uncheck-all {
-    color: #E03A4D;
+    color: #6f0000;
     cursor: pointer;
     padding: 0 1em;
 }
@@ -693,7 +694,7 @@ textarea {
 }
 
 .result-block h2 {
-    color: #E03A4D;
+    color: #6f0000;
 }
 
 .result-block .result-error {
@@ -701,12 +702,12 @@ textarea {
 }
 
 .result-block .result-error a {
-    color: #E03A4D;
+    color: #6f0000;
     text-decoration: none;
 }
 
 .result-block .summary a {
-    color: #E03A4D;
+    color: #6f0000;
     text-decoration: none;
 }
 
@@ -723,7 +724,7 @@ textarea {
 }
 
 .error-page h2 {
-    color: #E03A4D;
+    color: #6f0000;
 }
 
 .error-page .big-button {
