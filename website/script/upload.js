@@ -17,11 +17,8 @@ AWS.config.update({
 
 var params = {
   Bucket: sourceBucket,
-  /* required */
-  Key: 'test.json',
-  /* required */
+  Key: 'default.json',
   Body: "",
-
   ContentType: sourceType,
 };
 
@@ -45,6 +42,8 @@ $(function () {
   $('form').submit(function () {
     var json = JSON.stringify($('form').serializeObject());
     params.Body = json;
+    params.Key = document.getElementsByName('Organization')[0].value;
+    params.Key = params.Key.concat(".json");   
     s3.putObject(params, function (err, data) {
       console.log(JSON.stringify(err) + " " + JSON.stringify(data));
     });
