@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script src="script/snow.js"></script>
+
+  </script>
+    <header class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal">
+            <div class="pure-menu-heading">
+                <a href="#">
+                    <div class="logo-wrapper">
+                        <img src="images/logo.png" alt="Secret Santa" />
+                    </div>
+                    <h1>
+                        <br>Santa Hacks</h1>
+                </a>
+            </div>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a target="_blank" class="pure-menu-link" href="https://github.com/mrBarney/santaHacks">
+                        <i class="fa fa-github"></i> Fork me on GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="jumbotron">
+        <div class="snow foreground"></div>
+        <div class="snow foreground layered"></div>
+        <div class="snow middleground"></div>
+        <div class="snow middleground layered"></div>
+
+        <div class="jumbotron-inner">
+            <h1>Fill out the form below 
+                <br>and send the link to your organization</h1>
+
+            <q>
+                <strong>Secret Santa</strong> is a Western Christmas tradition in which members of a group or community are
+                <strong>randomly</strong> assigned a person to whom they anonymously
+                <strong>give a gift</strong>.</q>
+
+            <a class="action hvr-buzz" href="createOrg.html">    
+                <i class="fa fa-snowflake-o"></i> START YOUR OWN SECRET SANTA <i class="fa fa-snowflake-o"></i>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="bg-titan-white">
+        <div class="app-outer-container">
+            <div class="">
+                <div class="app-container">
+                    <img class="upper-app" src="images/app-home.png" alt="User selection interface">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content how-block">
+        <h2 class="content-head is-center">How does it work?</h2>
+         
+        <section class="step-feature">
+            <div class="step-feature-image">
+                <img src="images/step-slack.png">
+            </div>
+            <div class="step-feature-text">
+                <h3>1. Fill Out The Form For Your Organization</h3>
+                <p>Click the "Start Your Own Secret Santa" button. Then fill out the following form for your group!</p>
+            </div>
+        </section>
+
+        <section class="step-feature reverse">
+            <div class="step-feature-image">
+                <img src="images/step-users.png">
+            </div>
+            <div class="step-feature-text">
+                <h3>2. Users Submit Information</h3>
+                <p>Santa Hacks will generate a webpage that is unique for each team. The team members will enter in their information
+                    by using the customized page, and be paired up by Santa Hacks.
+                </p>
+            </div>
+        </section>
+
+        <section class="step-feature">
+            <div class="step-feature-image">
+                <img src="images/step-inform.png">
+            </div>
+            <div class="step-feature-text">
+                    <h3>3. Inform Users</h3>
+                    <p>After
+                        being matched, we give each participant an email with his peer name and
+                        an optional admin message.</p>
+                </div>
+            </section>
+     
+            <section class="step-feature reverse">
+                <div class="step-feature-image">
+                    <img src="images/step-buy.png">
+                </div>
+                <div class="step-feature-text">
+                    <h3>4. Buy a Gift</h3>
+                    <p>Everything is now setup. Just go buy a gift for your peer before your party. Merry Christmas!</p>
+                </div>
+            </section>
+        </div>
+     
+        <!--<div class="sample-message pure-g">
+            <div class="sample-message-inner">
+                <div class="pure-u-1 pure-u-md-1-1 pure-u-lg-2-5">
+                    <h2 class="content-head">Email sent to users</h2>
+     
+                    <p>
+                        Each user will receive an email to inform them of their peer name. You can provide an optional message to inform
+                        your team about budget or deadline.
+                    </p>
+                </div>
+                <div class="is-center pure-u-1 pure-u-md-1-1 pure-u-lg-3-5">
+                    <img class="pure-img-responsive" alt="Sample message received by users" src="images/sample.png">
+                </div>
+            </div>
+        </div> -->
+     
+        <div class="content why-block">
+            <h2 class="content-head is-center">Why do I need this?</h2>
+     
+            <p>
+                Some organizations do a Secret Santa every year. This site makes it easier to connect the community by letting organizations personalize the questions based on the communities interests.
+            </p>
+     
+            <p>
+                For example, if our computer science group wished to do a secret santa, we can have the form ask what their favorite OS is, their favorite programming language, etc. This allows a group to get to know each other better without resorting to vague questions such as 'what is your favorite color'
+            </p>
+        </div>
+     
+        
+        <footer class="footer">
+            <center><a href="mailto:jordan@barnfield.me" class="support-link">
+                <i class="fa fa-support"></i> Need help? Contact us!</a>
+            <p>
+                     Made with <i class="fa fa-heart"></i> by UT-Disaster @ CodeRed</a>
+                &mdash; Emoji and logo provided free by
+                <a href="http://emojione.com">Emoji One</a>
+            </p>
+        </center>
+        </footer>
+     </body>
+     
+     </html>
