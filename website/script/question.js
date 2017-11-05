@@ -16,7 +16,7 @@ $(document).ready(function()
  });
 
  $(questions).on("click", ".rem", function(e){
-   if(n>0){
+   if(n>3){
    e.preventDefault();
    $(this).parent('div').remove();
    n--;
