@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
    var limit = 20;
-   var n = 5;
+   var n = 4;
    var addB = $(".addB");
    var questions = $(".Que");
 
@@ -10,9 +10,8 @@ $(document).ready(function()
    $(addB).click(function(e)
  {
    if(n<limit){
-     $(questions).append("<div>  <label>Question "+n+":</label> <input type=\"text\" name=\"question"+n+"\" class=\"questions\" ><a href=\"#\" class=\"rem\">X</a><br><br></div>");
-
-         n++;
+     $(questions).append('<div>  <label>Question '+n+':</label> <input type="text" name="question'+n+'" class="questions"> <a href="#" class="rem"> X </a> <br><br></div>');
+    n++;
     }
  });
 
