@@ -5,6 +5,8 @@ $(document).ready(function()
    var addB = $(".addB");
    var questions = $(".questions");
 
+   $( "#datepicker" ).datepicker();
+
    $(addB).click(function(e)
  {
    if(n<limit){
