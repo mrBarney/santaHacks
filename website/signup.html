@@ -125,15 +125,12 @@
             <div class="snow middleground layered"></div>
 
             <div class="jumbotron-inner">
-                <h1>Fill out the form below!</h1>
-                <br> Share this link with people you'd like to participate
+                <br> Share this link with your organization:
                 <br>
                 <div class="form-field">
                     <label id="link" name="link" class="form-control"></label>
                 </div>
-                <div>
-                    <h2 id="message0"></h2>
-                </div>
+                <h1>Let's get the basics out of the way.</h1>
                 <br>
                 <form id="orgForm" action="" method="post">
                     <div class="form-field">
@@ -174,6 +171,9 @@
                     </div>
                     <br>
                     <hr>
+                    <div>
+                        <h2 id="message0"></h2>
+                    </div>
                     <br>
                     <div class="Que">
                         <div id="form1" class="form-field">
@@ -246,11 +246,35 @@
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
         <script src='https://sdk.amazonaws.com/js/aws-sdk-2.145.0.min.js'></script>
-
+        <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
         <script src="script/config.js"></script>
         <script src="script/question.js"></script>
         <script src="script/member.js"></script>
         <script src="script/userResponse.js"></script>
+        <script>
+            // URL Shortner
+            function load() {
+                gapi.client.setApiKey(googleConfig.googleAPI);
+                gapi.client.load('urlshortener', 'v1', function () {
+                    var Url = window.location.href;
+                    var request = gapi.client.urlshortener.url.insert({
+                        'resource': {
+                            'longUrl': Url
+                        }
+                    });
+                    request.execute(function (response) {
+
+                        if (response.id != null) {
+                            str = response.id;
+                            document.getElementById("link").innerHTML = str;
+                        } else {
+                            alert("Error: creating short url: " + response.error);
+                        }
+                    });
+                });
+            }
+            window.onload = load;
+        </script>
 
         <footer class="footer, row">
             <center>

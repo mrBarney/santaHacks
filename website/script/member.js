@@ -3,7 +3,6 @@ var urlParams = new URLSearchParams(window.location.search);
 var setupBucket = "setup.santahacks.com";
 var sourceKey = urlParams.get("orgname") + ".json"; // Filename. Need to get from browser
 var sourceType = "application/json";
-document.getElementById("link").innerHTML = window.location.href;
 
 var params = {
     Bucket: setupBucket,
@@ -79,3 +78,4 @@ s3.getObject(params, function (err, data) {
 
     } // successful response
 });
+
