@@ -18,25 +18,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .ui-datepicker {
-            background: #FFF;
-            border: 1px solid #000;
-            color: #000;
-            padding: 10px;
-        }
-
-        table.ui-datepicker-calendar {
-            border-spacing: 5px;
-        }
-
-        .ui-datepicker table {
-            border-collapse: inherit;
-        }
-
-        #datepicker {
-            color: #000;
-        }
-
         .addB {
             background-color: #006600;
             /* Green */
@@ -76,7 +57,6 @@
             max-width: 50%;
             display: inline-block;
             position: relative;
-            text-align: center;
             color: black;
         }
 
@@ -137,8 +117,16 @@
                     <div class="form-field">
                         <label>Organization name:</label>
                         <input type="text" name="Organization" class="questions form-control" placeholder="UT Dallas">
-                        <a href="#" class="rem"> &nbsp</a>
-                        <a href="#" class="rem"> &nbsp</a>
+                        <i class="rem"> &nbsp</i>
+                        <i class="rem"> &nbsp</i>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="form-field">
+                        <label>Your e-mail:</label>
+                        <input type="text" name="email" class="questions form-control" placeholder="We'll send you an e-mail after creation">
+                        <i class="rem"> &nbsp</i>
+                        <i class="rem"> &nbsp</i>
                         <br>
                         <br>
                     </div>
@@ -170,20 +158,14 @@
                     <br>
                     <br>
 
+                    <h2>Message for sign-ups:</h2>
                     <div class="form-field">
-                        <label>Message for sign-ups:</label>
-                        <input type="text" class="questions form-control" name="Message">
+                        <textarea type="text" class="questions form-control" name="Message" style="height: 150px;"></textarea>
                         <br>
                         <br>
                     </div>
-                    <div class="form-field">
-                        <label>Deadline:</label>
-                        <input class="questions form-control" type="text" id="datepicker">
-                        <br>
-                        <br>
-                    </div>
-                    <input type="submit" value="Submit" class="submit">
 
+                    <input type="submit" value="Submit" class="submit">
                 </form>
             </div>
         </div>

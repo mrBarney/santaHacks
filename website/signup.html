@@ -251,30 +251,6 @@
         <script src="script/question.js"></script>
         <script src="script/member.js"></script>
         <script src="script/userResponse.js"></script>
-        <script>
-            // URL Shortner
-            function load() {
-                gapi.client.setApiKey(googleConfig.googleAPI);
-                gapi.client.load('urlshortener', 'v1', function () {
-                    var Url = window.location.href;
-                    var request = gapi.client.urlshortener.url.insert({
-                        'resource': {
-                            'longUrl': Url
-                        }
-                    });
-                    request.execute(function (response) {
-
-                        if (response.id != null) {
-                            str = response.id;
-                            document.getElementById("link").innerHTML = str;
-                        } else {
-                            alert("Error: creating short url: " + response.error);
-                        }
-                    });
-                });
-            }
-            window.onload = load;
-        </script>
 
         <footer class="footer, row">
             <center>

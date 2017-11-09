@@ -1,9 +1,7 @@
 var urlParams = new URLSearchParams(window.location.search);
-
 var setupBucket = "setup.santahacks.com";
 var sourceKey = urlParams.get("orgname") + ".json"; // Filename. Need to get from browser
 var sourceType = "application/json";
-
 var params = {
     Bucket: setupBucket,
     /* required */
@@ -11,6 +9,8 @@ var params = {
     /* required */
     ResponseContentType: sourceType,
 };
+
+window.onload = load;
 
 s3.getObject(params, function (err, data) {
     if (err) console.log(err, err.stack); // an error occurred
@@ -78,4 +78,28 @@ s3.getObject(params, function (err, data) {
 
     } // successful response
 });
+
+// URL Shortner
+function load() {
+    gapi.client.setApiKey(googleConfig.googleAPI);
+    gapi.client.load('urlshortener', 'v1', function () {
+        var Url = window.location.href;
+        var request = gapi.client.urlshortener.url.insert({
+            'resource': {
+                'longUrl': Url
+            }
+        });
+        request.execute(function (response) {
+
+            if (response.id != null) {
+                str = response.id;
+                document.getElementById("link").innerHTML = str;
+            } else {
+                alert("Error creating short url");
+                document.getElementById("link").innerHTML = window.location.href;
+            }
+        });
+    });
+}
+
 
