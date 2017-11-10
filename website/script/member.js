@@ -79,7 +79,7 @@ s3.getObject(params, function (err, data) {
 
 // URL Shortner
 function load() {
-    gapi.client.setApiKey('AIzaSyDRLni4JN-LJCdh_nHUYAQXVoKiPmtpzO4');
+    gapi.client.setApiKey(googleConfig.googleAPI);
     gapi.client.load('urlshortener', 'v1', function () {
             var longUrl = window.location.href;
             var request = gapi.client.urlshortener.url.insert({
