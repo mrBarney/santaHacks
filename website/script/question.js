@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   $(addB).click(function (e) {
     if (n < limit) {
-      $(questions).append('<div class="form-field">  <label>Question ' + n + ':</label> <input type="text" name="Question ' + n + '" class="questions form-control"> <a href="#" class="rem"> X </a> <br><br></div>');
+      $(questions).append('<div class="form-field">  <label>Question ' + n + ':</label> <input type="text" name="Question' + n + '" class="questions form-control"> <a href="#" class="rem"> X </a> <br><br></div>');
       n++;
     }
   });

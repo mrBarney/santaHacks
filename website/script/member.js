@@ -4,24 +4,22 @@ var sourceKey = urlParams.get("orgname") + ".json"; // Filename. Need to get fro
 var sourceType = "application/json";
 var params = {
     Bucket: setupBucket,
-    /* required */
     Key: sourceKey,
-    /* required */
     ResponseContentType: sourceType,
 };
 
 window.onload = load;
 
 s3.getObject(params, function (err, data) {
-    if (err) console.log(err, err.stack); // an error occurred
+    if (err)
+        console.log(err, err.stack); // an error occurred
     else {
-
         var org = $("#ORG");
         var a = new TextDecoder("utf-8").decode(data.Body);
         var b = JSON.parse(a);
 
         console.log(new TextDecoder("utf-8").decode(data.Body));
-        
+
         $(org).text("" + (b.Organization));
         $(message0).text("" + (b.Message));
         if (b.Question1) {
@@ -81,25 +79,23 @@ s3.getObject(params, function (err, data) {
 
 // URL Shortner
 function load() {
-    gapi.client.setApiKey(googleConfig.googleAPI);
+    gapi.client.setApiKey('AIzaSyDRLni4JN-LJCdh_nHUYAQXVoKiPmtpzO4');
     gapi.client.load('urlshortener', 'v1', function () {
-        var Url = window.location.href;
-        var request = gapi.client.urlshortener.url.insert({
-            'resource': {
-                'longUrl': Url
-            }
-        });
-        request.execute(function (response) {
-
-            if (response.id != null) {
-                str = response.id;
-                document.getElementById("link").innerHTML = str;
-            } else {
-                alert("Error creating short url");
-                document.getElementById("link").innerHTML = window.location.href;
-            }
-        });
+            var longUrl = window.location.href;
+            var request = gapi.client.urlshortener.url.insert({
+                'resource': {
+                    'longUrl': longUrl
+                }
+            });
+            request.execute(function (response) {
+                if (response.id != null) {
+                    str = response.id;
+                    document.getElementById("link").innerHTML = str;
+                } else {
+                    document.getElementById("link").innerHTML = window.location.href;
+                }
+        
+            });
     });
+
 }
-
-

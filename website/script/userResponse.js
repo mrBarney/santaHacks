@@ -34,16 +34,15 @@ $(function () {
         params.Key = params.Key.concat("/" + document.getElementsByName('Name')[0].value);
         params.Key = params.Key.concat(".json");
         params.Key = params.Key.replace(/ /g, '_');
-        var s3 = new AWS.S3(config);
-            s3.putObject(params, function (err, data) {
-                if(err)
-                    console.log(err, err.stack);
-                else
-                    console.log("Success!!");
-            });
-            setTimeout(function(){
-                window.location.href="submitted.html?orgname=" + sourceKey;    
-              }, 1000);
+        s3.putObject(params, function (err, data) {
+            if (err)
+                console.log(err, err.stack);
+            else
+                console.log("Success!!");
+        });
+        setTimeout(function () {
+            window.location.href = "submitted.html?orgname=" + sourceKey;
+        }, 1000);
 
         return false;
     });
