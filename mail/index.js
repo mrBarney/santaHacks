@@ -7,21 +7,28 @@ exports.handler = function (event, context) {
     console.log("Incoming: ", event);
 
     var orgTemplate = {
-            "TemplateName": "orgCreationTemplate",
-            "SubjectPart": "{{name}}, your secret santa match is here!",
-            "TextPart": "Dear {{name}},\r\nYour favorite animal is {{favoriteanimal}}.",
-            "HtmlPart": "<h1>Thanks for signing up to be a part of the <strong>CodeRED</strong> Secret Santa!</h1><br>" +
+        Template: {
+            TemplateName: "orgCreationTemplate",
+            SubjectPart: "{{name}}, your secret santa match is here!",
+            TextPart: "Dear {{name}},\r\nYour favorite animal is {{favoriteanimal}}.",
+            HtmlPart: "<h1>Thanks for signing up to be a part of the <strong>CodeRED</strong> Secret Santa!</h1><br>" +
                 "Your organization is: {{orgname}}" +
                 "More information will go here<br><br><br>" +
                 "<h2>Click below to begin matching!!</h2><br>" +
                 "<strong>Click here!</strong>"
+        }
     }
 
-    ses.createTemplate(orgTemplate); // fix this
+    ses.createTemplate(orgTemplate, function(err, data) {
+        if 
+            (err) console.log(err, err.stack); // an error occurred
+        else     
+            console.log(data);           // successful response
+      });
 
     var eParams = {
         "Source": "alerts@santahacks.com",
-        "Template": orgTemplate.TemplateName, // fix this
+        "Template": "orgCreationTemplate", // fix this
         "Destination": {
             "ToAddresses": ["jordan@barnfield.me"]
         },
