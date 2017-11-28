@@ -1,4 +1,3 @@
-if (navigator.userAgent.search("Chrome") & gt; = 0) {
     var canvas = document.body.appendChild(document.createElement('canvas')),
         context = canvas.getContext('2d');
     context.globalCompositeOperation = 'lighter';
@@ -63,4 +62,3 @@ if (navigator.userAgent.search("Chrome") & gt; = 0) {
         }
         setTimeout(draw, 70);
     }
-}
