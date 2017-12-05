@@ -1,7 +1,11 @@
-
 const sourceBucket = "setup.santahacks.com";
 const sourceType = "application/json";
-var params = {
+var filename;
+var getParams = {
+  Bucket: sourceBucket,
+  Key: 'default.json',
+};
+var putParams = {
   Bucket: sourceBucket,
   Key: 'default.json',
   Body: "",
@@ -27,16 +31,25 @@ $.fn.serializeObject = function () {
 $(function () {
   $('form').submit(function () {
     var json = JSON.stringify($('form').serializeObject());
-    params.Body = json;
-    params.Key = document.getElementsByName('Organization')[0].value;
-    params.Key = params.Key.concat(".json");
-    params.Key = params.Key.replace(/ /g, '_');
-    s3.putObject(params, function (err, data) {
-      console.log(JSON.stringify(err) + " " + JSON.stringify(data));
+    putParams.Body = json;
+    filename = document.getElementsByName('Organization')[0].value;
+    filename = filename.concat(".json");
+    filename = filename.replace(/ /g, '_');
+    getParams.Key = filename;
+    putParams.Key = filename;
+    s3.getObject(getParams, function (err, data) {
+      if (err) { // orgname doesn't already exist
+        s3.putObject(putParams, function (err, data) {
+          console.log(JSON.stringify(err) + " " + JSON.stringify(data));
+        });
+        setTimeout(function () {
+          window.location.href = "signup.html?orgname=" + document.getElementsByName('Organization')[0].value.replace(/ /g, '_');
+        }, 1000);
+      } else { // orgname exists
+        alert("Organization name already exists");
+        return;
+      } // successful response
     });
-    setTimeout(function(){
-      window.location.href="signup.html?orgname=" + document.getElementsByName('Organization')[0].value.replace(/ /g, '_');    
-    }, 1000);
     return false;
   });
 });
