@@ -1,12 +1,15 @@
 var sourceBucket = "responses.santahacks.com";
 var sourceType = "application/json";
 var urlParams = new URLSearchParams(window.location.search);
-var sourceKey = urlParams.get("orgname");
+var filename = urlParams.get("orgname");
 var s3 = new AWS.S3(config);
-
-var params = {
+var getParams = {
     Bucket: sourceBucket,
-    Key: sourceKey,
+    Key: 'default.json',
+};
+var putParams = {
+    Bucket: sourceBucket,
+    Key: 'default.json',
     Body: "",
     ContentType: sourceType,
 };
@@ -30,20 +33,29 @@ $.fn.serializeObject = function () {
 $(function () {
     $('form').submit(function () {
         var json = JSON.stringify($('form').serializeObject());
-        params.Body = json;
-        params.Key = params.Key.concat("/" + document.getElementsByName('Name')[0].value);
-        params.Key = params.Key.concat(".json");
-        params.Key = params.Key.replace(/ /g, '_');
-        s3.putObject(params, function (err, data) {
-            if (err)
-                console.log(err, err.stack);
-            else
-                console.log("Success!!");
+        putParams.Body = json;
+        filename = filename.concat("/" + document.getElementsByName('Name')[0].value);
+        filename = filename.concat(".json");
+        filename = filename.replace(/ /g, '_');
+        putParams.Key = filename;
+        getParams.Key = filename;
+        s3.getObject(getParams, function (err, data) {
+            if (err) { // name doesn't already exist
+                s3.putObject(putParams, function (err, data) {
+                    if (err)
+                        console.log(err, err.stack);
+                    else
+                        console.log("Success!!");
+                });
+                setTimeout(function () {
+                    window.location.href = "submitted.html?orgname=" + urlParams.get("orgname");
+                }, 1000);
+            } else { // name exists
+                alert("Name already exists. Try using first, last, and middle to avoid confusion.");
+                filename = urlParams.get("orgname");
+                return;
+            } // successful response
         });
-        setTimeout(function () {
-            window.location.href = "submitted.html?orgname=" + sourceKey;
-        }, 1000);
-
         return false;
     });
 });
