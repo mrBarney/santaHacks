@@ -1,55 +1,45 @@
-var aws = require('aws-sdk');
-var ses = new aws.SES({
-    region: 'us-east-1'
-});
+var json;
+var email;
+var organizationName = "{ \"Organization\":";
+var getParams = {
+    Bucket: 'setup.santahacks.com',
+    Key: 'EmailTest2.json',
+};
 
 exports.handler = function (event, context) {
-    console.log("Incoming: ", event);
-
-    var orgTemplate = {
-        Template: {
-            TemplateName: "orgCreationTemplate",
-            SubjectPart: "{{name}}, your secret santa match is here!",
-            TextPart: "Dear {{name}},\r\nYour favorite animal is {{favoriteanimal}}.",
-            HtmlPart: "<h1>Thanks for signing up to be a part of the <strong>CodeRED</strong> Secret Santa!</h1><br>" +
-                "Your organization is: {{orgname}}" +
-                "More information will go here<br><br><br>" +
-                "<h2>Click below to begin matching!!</h2><br>" +
-                "<strong>Click here!</strong>"
-        }
-    }
-
-    ses.createTemplate(orgTemplate, function(err, data) {
-        if 
-            (err) console.log(err, err.stack); // an error occurred
-        else     
-            console.log(data);           // successful response
-      });
-
-    var eParams = {
-        "Source": "alerts@santahacks.com",
-        "Template": "orgCreationTemplate", // fix this
-        "Destination": {
-            "ToAddresses": ["jordan@barnfield.me"]
-        },
-        "TemplateData": "{ \"name\":\"Jordan\", \"favoriteanimal\": \"zebra\", \"orgname\":\"UT Disasters\" }",
-    }
-
-    console.log('===SENDING EMAIL===');
-
-    var email = ses.sendTemplatedEmail(eParams, function (err, data) {
-        if (err)
-            console.log(err);
-        else {
-            console.log("===EMAIL SENT===");
-            console.log(data);
-
-
-            console.log("EMAIL CODE END");
-            console.log('EMAIL: ', email);
-            context.succeed(event);
-
+    s3.getObject(getParams, function (err, data) {
+        if (err) {
+            console.log(err, err.stack);
+        } else {
+            json = data.Body.toString('utf-8');
+            json = JSON.parse(json);
+            email = JSON.stringify(json.email);
+            email = email.replace(/['"]+/g, '');
+            console.log(email);
+            json = organizationName + JSON.stringify(json.Organization) + "}";
+            console.log(json);
         }
     });
 
+    setTimeout(function () {
+        var eParams = {
+            "Source": "alerts@santahacks.com",
+            "Template": "updatedOrgTemplate",
+            "Destination": {
+                "ToAddresses": [email]
+            },
+            "TemplateData": json,
+        }
+
+        // Create the promise and SES service object
+        var sendPromise = ses.sendTemplatedEmail(eParams).promise();
+
+        sendPromise.then(
+            function (data) {
+                console.log(data);
+            }).catch(
+            function (err) {
+                console.error(err, err.stack);
+            });
+    }, 1000);
 };
