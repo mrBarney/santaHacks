@@ -1,12 +1,14 @@
 var json;
 var email;
 var organizationName = "{ \"Organization\":";
-var getParams = {
-    Bucket: 'setup.santahacks.com',
-    Key: 'EmailTest2.json',
-};
 
 exports.handler = function (event, context) {
+    var getParams = {
+        Bucket: 'setup.santahacks.com',
+        Key: JSON.stringify(event.Records[0].s3.object.key).replace(/['"]+/g, ''),
+    };
+
+    console.log(JSON.stringify(event.Records[0].s3.object.key).replace(/['"]+/g, ''));
     s3.getObject(getParams, function (err, data) {
         if (err) {
             console.log(err, err.stack);
