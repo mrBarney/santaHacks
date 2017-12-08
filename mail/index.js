@@ -1,6 +1,7 @@
 var json;
 var email;
 var organizationName = "{ \"Organization\":";
+var link = "\"link\": \"<a href=\'https://www.santahacks.com/signup.html?orgname="; 
 
 exports.handler = function (event, context) {
     var getParams = {
@@ -18,7 +19,9 @@ exports.handler = function (event, context) {
             email = JSON.stringify(json.email);
             email = email.replace(/['"]+/g, '');
             console.log(email);
-            json = organizationName + JSON.stringify(json.Organization) + "}";
+            link = link + JSON.stringify(json.Organization).replace(/['"]+/g, '') + "'" + ">https://www.santahacks.com/signup.html?orgname=" + JSON.stringify(json.Organization).replace(/['"]+/g, '') + "</a>\"";
+            json = organizationName + JSON.stringify(json.Organization);
+            json = json + "," + link + "}";
             console.log(json);
         }
     });
