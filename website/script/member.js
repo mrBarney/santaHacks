@@ -7,6 +7,7 @@ var params = {
     Key: sourceKey,
     ResponseContentType: sourceType,
 };
+get_short_url(window.location.href, "jordanbarnfield", "R_8524b64cedd6401b8a81e157fe59287f");
 
 window.onload = load;
 
@@ -78,24 +79,19 @@ s3.getObject(params, function (err, data) {
 });
 
 // URL Shortner
-function load() {
-    gapi.client.setApiKey(googleConfig.googleAPI);
-    gapi.client.load('urlshortener', 'v1', function () {
-            var longUrl = window.location.href;
-            var request = gapi.client.urlshortener.url.insert({
-                'resource': {
-                    'longUrl': longUrl
-                }
-            });
-            request.execute(function (response) {
-                if (response.id != null) {
-                    str = response.id;
-                    document.getElementById("link").innerHTML = str;
-                } else {
-                    document.getElementById("link").innerHTML = window.location.href;
-                }
-        
-            });
-    });
-
+function get_short_url(long_url, login, api_key) {
+    $.getJSON(
+        "http://api.bitly.com/v3/shorten?callback=?", {
+            "format": "json",
+            "apiKey": api_key,
+            "login": login,
+            "longUrl": long_url
+        },
+        function(response) {
+            if(response.data.url != null)
+                document.getElementById("link").innerHTML = response.id;
+            else
+                document.getElementById("link").innerHTML = window.location.href;
+        }
+    );
 }
